@@ -126,11 +126,11 @@ wpblocks.registerBlockType("planet4-blocks/articles", {
                     }
                 }, post_types: {
                     type: "string", shortcode: function (e) {
-                        return e.named.tags ? e.named.post_types.split(",") : []
+                        return e.named.post_types ? e.named.post_types.split(",") : []
                     }
                 }, posts: {
                     type: "string", shortcode: function (e) {
-                        return e.named.tags ? e.named.posts.split(",") : []
+                        return e.named.posts ? e.named.posts.split(",") : []
                     }
                 }, exclude_post_id: {
                     type: "integer", shortcode: function (e) {
