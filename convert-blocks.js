@@ -1644,7 +1644,9 @@ function process_post(post) {
             // then serialize that blocks (it should be a freeform probably)
             // and pass it again to rawHandler to break it down to blocks.
             // This way freeform blocks will be broken down to smaller blocks, like paragraphs.
-            if (!block.name.includes('planet4') && !block.name.includes('freeform')) {
+            if (!block.name.includes('planet4')
+                 && !block.name.includes('missing')
+                 && !block.name.includes('freeform')) {
 
                 // try {
 
@@ -1653,7 +1655,10 @@ function process_post(post) {
                     // console.log(temp_content);
                     temp_blocks = wpblocks.rawHandler({HTML: temp_content});
                     // console.log(temp_blocks);
-                    temp_blocks = wpblocks.rawHandler({HTML: wpblocks.getBlockContent(temp_blocks[0])});
+
+                    if (temp_blocks[0]) {
+                        temp_blocks = wpblocks.rawHandler({HTML: wpblocks.getBlockContent(temp_blocks[0])});
+                    }
                     // console.log(temp_blocks);
                     // block = temp_blocks[0];
                     // console.log(temp_blocks);
